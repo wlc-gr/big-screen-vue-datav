@@ -12,7 +12,7 @@
 4.  [项目 gitee 地址（国内速度快）](https://gitee.com/MTrun/big-screen-vue-datav)
 
 项目截图（展示动态）
-[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-KghnpAbJ-1585577359810)(https://images.gitee.com/uploads/images/2020/0318/220710_4b0bf590_4964818.png "JPW8NE}N@Y{HLYA$ZPY%T24.png")]
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0318/220710_4b0bf590_4964818.png "JPW8NE}N@Y{HLYA$ZPY%T24.png")
 
 ## 二、主要文件介绍
 
