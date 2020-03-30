@@ -96,7 +96,7 @@ methods: {
 只需要去 views 目录下去寻找对应的位置去查找并替换就可以，具体的种类请去 DavaV 官网查看
 
 4. **如何更换图表**
-   直接进入 components/echart 下的文件修改成你要的 echarts 模样，可以去[echarts 官方社区]里面查看文件(https://gallery.echartsjs.com/explore.html#sort=rank~timeframe=all~author=all)
+   直接进入 components/echart 下的文件修改成你要的 echarts 模样，可以去[echarts 官方社区](https://gallery.echartsjs.com/explore.html#sort=rank~timeframe=all~author=all)里面查看案例。
 
 ## 四、更新情况
 
