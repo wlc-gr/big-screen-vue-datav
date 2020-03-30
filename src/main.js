@@ -11,6 +11,7 @@ import 'vue-awesome/icons/index.js'
 // 全局注册图标
 Vue.component('icon', Icon)
 
+// 引入全局css
 import './assets/scss/style.scss'
 
 Vue.config.productionTip = false
