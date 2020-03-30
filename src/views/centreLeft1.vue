@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import centreLeft1Chart from "@/components/echart/centreLeft1Chart";
+import centreLeft1Chart from "@/components/echart/centerLeft2/centreLeft1Chart";
 export default {
   data() {
     return {

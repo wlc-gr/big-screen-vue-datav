@@ -18,11 +18,10 @@
 </template>
 
 <script>
-import centreLeft2Chart from "@/components/echart/centreLeft2Chart"; 
+import centreLeft2Chart from "@/components/echart/centerLeft2/centreLeft2Chart";
 export default {
   data() {
-    return {
-    };
+    return {};
   },
   components: {
     centreLeft2Chart
