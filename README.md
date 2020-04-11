@@ -12,8 +12,8 @@
 3.  [Vue 官方文档](https://cn.vuejs.org/v2/guide/instance.html)
 4.  [项目 gitee 地址（国内速度快）](https://gitee.com/MTrun/big-screen-vue-datav)
 
-项目截图
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0318/220710_4b0bf590_4964818.png "JPW8NE}N@Y{HLYA$ZPY%T24.png")
+项目展示
+![项目展示](https://images.gitee.com/uploads/images/2020/0411/221307_0f8af2e7_4964818.gif "20200411_221020.gif")
 
 ## 二、主要文件介绍
 
