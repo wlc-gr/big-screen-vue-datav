@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="centerChart1" style="width:120px;height:100px;"></div>
+    <div :id="id" style="width:120px;height:100px;"></div>
   </div>
 </template>
 
@@ -13,14 +13,39 @@ export default {
   mounted() {
     this.drawPie();
   },
+  props: {
+    id: {
+      type: String,
+      required: true,
+      default: "chartRate"
+    },
+    tips: {
+      type: Number,
+      required: true,
+      default: 50
+    },
+    colorObj: {
+      type: Object,
+      default: function() {
+        return {
+          textStyle: "#3fc0fb",
+          series: {
+            color: ["#00bcd44a", "transparent"],
+            dataColor: {
+              normal: "#03a9f4",
+              shadowColor: "#97e2f5"
+            }
+          }
+        };
+      }
+    }
+  },
   methods: {
     drawPie() {
       // 基于准备好的dom，初始化echarts实例
-      let myChartPieLeft = echarts.init(
-        document.getElementById("centerChart1")
-      );
+      let myChartPieLeft = echarts.init(document.getElementById(this.id));
       //  ----------------------------------------------------------------
-      let tips = 60;
+      let tips = this.tips;
       let option = {
         title: [
           {
@@ -28,7 +53,7 @@ export default {
             x: "center",
             y: "center",
             textStyle: {
-              color: "#3fc0fb",
+              color: this.colorObj.textStyle,
               fontSize: 16
             }
           }
@@ -39,7 +64,7 @@ export default {
             radius: ["75%", "80%"],
             center: ["50%", "50%"],
             hoverAnimation: false,
-            color: ["#00bcd44a", "transparent"],
+            color: this.colorObj.series.color,
             label: {
               normal: {
                 show: false
@@ -50,9 +75,9 @@ export default {
                 value: tips,
                 itemStyle: {
                   normal: {
-                    color: "#03a9f4",
+                    color: this.colorObj.series.dataColor.normal,
                     shadowBlur: 10,
-                    shadowColor: "#97e2f5"
+                    shadowColor: this.colorObj.series.dataColor.shadowColor
                   }
                 }
               },

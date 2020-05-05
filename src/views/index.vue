@@ -22,7 +22,7 @@
               style="width:200px;height:50px;"
             />
           </div>
-          <dv-decoration-10 style="width:33.3%;height:5px;" />
+          <dv-decoration-10 style="width:33.3%;height:5px; transform: rotateY(180deg);" />
         </div>
 
         <!-- 第二行 -->
@@ -41,7 +41,7 @@
           </div>
           <div style="width: 40%" class="d-flex">
             <div class="react-left bg-color-blue mr-3">
-              <span class="text fw-b">数据分析3</span>
+              <span class="text fw-b">vue-big-screen</span>
             </div>
             <div
               class="react-left mr-4"

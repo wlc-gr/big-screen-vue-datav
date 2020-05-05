@@ -17,13 +17,13 @@
         <dv-scroll-ranking-board :config="ranking" style="height:220px" />
       </div>
       <div class="percent">
-        <div class="item  bg-color-black">
+        <div class="item bg-color-black">
           <span>今日任务通过率</span>
-          <centerChart1 />
+          <centerChart :id="rate[0].id" :tips="rate[0].tips" :colorObj="rate[0].colorData" />
         </div>
-        <div class="item  bg-color-black">
+        <div class="item bg-color-black">
           <span>今日任务达标率</span>
-          <centerChart2 />
+          <centerChart :id="rate[1].id" :tips="rate[1].tips" :colorObj="rate[1].colorData" />
         </div>
         <div class="water">
           <dv-water-level-pond :config="water" style="height: 120px" />
@@ -34,8 +34,7 @@
 </template>
 
 <script>
-import centerChart1 from "@/components/echart/center/centerChart1";
-import centerChart2 from "@/components/echart/center/centerChart2";
+import centerChart from "@/components/echart/center/centerChartRate";
 
 export default {
   data() {
@@ -131,15 +130,47 @@ export default {
       },
       water: {
         data: [24, 45],
-        shape: 'roundRect',
-        formatter:'{value}%',
-        waveNum:3
-      }
+        shape: "roundRect",
+        formatter: "{value}%",
+        waveNum: 3
+      },
+      // 通过率和达标率的组件复用数据
+      rate: [
+        {
+          id: "centerRate1",
+          tips: 60,
+          colorData: {
+            textStyle: "#3fc0fb",
+            series: {
+              color: ["#00bcd44a", "transparent"],
+              dataColor: {
+                normal: "#03a9f4",
+                shadowColor: "#97e2f5"
+              }
+            }
+          }
+        },
+        {
+          id: "centerRate2",
+          tips: 40,
+          colorData: {
+            textStyle: "#67e0e3",
+            series: {
+              color: ["#faf3a378", "transparent"],
+              dataColor: {
+                normal: "#ff9800",
+                shadowColor: "#fcebad"
+              }
+            }
+          }
+        }
+      ]
     };
   },
   components: {
-    centerChart1,
-    centerChart2
+    centerChart
+    // centerChart1,
+    // centerChart2
   }
 };
 </script>

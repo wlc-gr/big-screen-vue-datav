@@ -6,7 +6,7 @@
           <icon name="chart-pie"></icon>
         </span>
         <div class="d-flex">
-          <span class="fs-xl text mx-2">全国数据流通情况</span>
+          <span class="fs-xl text mx-2">数据情况雷达图</span>
           <dv-decoration-1 style="width:100px;height:20px; position:relative;top:-3px;" />
         </div>
       </div>
