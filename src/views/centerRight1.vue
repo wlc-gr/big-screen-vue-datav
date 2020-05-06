@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="d-flex jc-center body-box">
-        <dv-scroll-board :config="config" style="width:270px;height:360px" />
+        <dv-scroll-board :config="config" style="width:3.375rem;height:4.28rem" />
       </div>
     </div>
   </div>
@@ -53,21 +53,20 @@ export default {
 
 <style lang="scss">
 #centreRight1 {
-  padding: 1rem;
-  height: 410px;
-  min-width: 300px;
-  border-radius: 5px;
+  padding: 0.2rem;
+  height: 5.125rem;
+  min-width: 3.75rem;
+  border-radius: 0.0625rem;
   .bg-color-black {
-    height: 385px;
-    border-radius: 10px;
+    height: 4.8125rem;
+    border-radius: 0.125rem;
   }
   .text {
     color: #c3cbde;
   }
   .body-box {
-    border-radius: 10px;
+    border-radius: 0.125rem;
     overflow: hidden;
   }
-  
 }
 </style>

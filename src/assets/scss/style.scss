@@ -10,7 +10,6 @@
 }
 
 html {
-  font-size: 13px;
   margin: 0;
   padding: 0;
 }
@@ -49,7 +48,6 @@ a {
   float: left;
 }
 
-
 // 字体加粗
 .fw-b {
   font-weight: bold;
@@ -63,13 +61,12 @@ a {
 }
 
 .bg-color-black {
-  background-color: rgba(19, 25, 47, .6);
+  background-color: rgba(19, 25, 47, 0.6);
 }
 
 .bg-color-blue {
-  background-color: #1A5CD7;
+  background-color: #1a5cd7;
 }
-
 
 .colorBlack {
   color: #272727 !important;
@@ -80,10 +77,10 @@ a {
 }
 
 .colorGrass {
-  color: #33CEA0;
+  color: #33cea0;
 
   &:hover {
-    color: #33CEA0 !important;
+    color: #33cea0 !important;
   }
 }
 
@@ -96,10 +93,10 @@ a {
 }
 
 .colorText {
-  color: #D3D6DD !important;
+  color: #d3d6dd !important;
 
   &:hover {
-    color: #D3D6DD !important;
+    color: #d3d6dd !important;
   }
 }
 
@@ -111,10 +108,8 @@ a {
   }
 }
 
-
 //颜色
-@each $colorkey,
-$color in $colors {
+@each $colorkey, $color in $colors {
   .text-#{$colorkey} {
     color: $color;
   }
@@ -124,7 +119,6 @@ $color in $colors {
   }
 }
 
-
 //对齐
 @each $var in (left, center, right) {
   .text-#{$var} {
@@ -133,46 +127,38 @@ $color in $colors {
 }
 
 //flex
-@each $key,
-$value in $flex-jc {
+@each $key, $value in $flex-jc {
   .jc-#{$key} {
     justify-content: $value;
   }
 }
 
-@each $key,
-$value in $flex-ai {
+@each $key, $value in $flex-ai {
   .ai-#{$key} {
     align-items: $value;
   }
 }
 
 //字体
-@each $fontkey,
-$fontvalue in $font-sizes {
+@each $fontkey, $fontvalue in $font-sizes {
   .fs-#{$fontkey} {
     font-size: $fontvalue * $base-font-size;
   }
 }
 
-
 //.mt-1 => margin top
 //spacing
 
-@each $typekey,
-$type in $spacing-types {
-
+@each $typekey, $type in $spacing-types {
   //.m-1
-  @each $sizekey,
-  $size in $spacing-sizes {
+  @each $sizekey, $size in $spacing-sizes {
     .#{$typekey}-#{$sizekey} {
       #{$type}: $size * $spacing-base-size;
     }
   }
 
   //.mx-1
-  @each $sizekey,
-  $size in $spacing-sizes {
+  @each $sizekey, $size in $spacing-sizes {
     .#{$typekey}x-#{$sizekey} {
       #{$type}-left: $size * $spacing-base-size;
       #{$type}-right: $size * $spacing-base-size;
@@ -185,11 +171,8 @@ $type in $spacing-types {
   }
 
   //.mt-1
-  @each $directionkey,
-  $direction in $spacing-directions {
-
-    @each $sizekey,
-    $size in $spacing-sizes {
+  @each $directionkey, $direction in $spacing-directions {
+    @each $sizekey, $size in $spacing-sizes {
       .#{$typekey}#{$directionkey}-#{$sizekey} {
         #{$type}-#{$direction}: $size * $spacing-base-size;
       }

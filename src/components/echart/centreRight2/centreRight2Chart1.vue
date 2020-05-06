@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="centreRight2Chart1" style="width:260px; height: 215px;">123</div>
+    <div id="centreRight2Chart1" style="width:3.25rem; height: 2.60rem;">123</div>
   </div>
 </template>
 
@@ -168,7 +168,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#centreRight2Chart1{
+#centreRight2Chart1 {
   margin: 0 auto;
 }
 </style>

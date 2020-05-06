@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="bottomRightChart" style="width:900px;height:480px;"></div>
+    <div id="bottomRightChart" style="width:11.25rem;height:6rem;"></div>
   </div>
 </template>
 
@@ -388,8 +388,7 @@ export default {
             barWidth: "50%",
             data: weekMaxData,
             animation: false
-          },
-          
+          }
         ]
       };
 

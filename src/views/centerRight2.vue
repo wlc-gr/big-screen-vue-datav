@@ -7,8 +7,8 @@
         </span>
         <span class="fs-xl text mx-2">产品销售渠道分析</span>
       </div>
-      <div class="d-flex jc-center body-box">
-        <dv-capsule-chart :config="config" style="width: 100%;height:160px" />
+      <div class="d-flex jc-center body-box" style=" margin-top: 0;">
+        <dv-capsule-chart :config="config" style="width: 100%;height:2rem" />
         <!-- ---------------------------------------- -->
         <centreRight2Chart1></centreRight2Chart1>
       </div>
@@ -56,21 +56,20 @@ export default {
 
 <style lang="scss">
 #centreRight2 {
-  padding: 5px;
-  height: 400px;
-  min-width: 300px;
-  border-radius: 5px;
+  padding: 0.0625rem;
+  height: 5rem;
+  min-width: 3.75rem;
+  border-radius: 0.0625rem;
   .bg-color-black {
-    padding: 5px;
-    height: 405px;
-    border-radius: 10px;
+    padding: 0.0625rem;
+    height: 5.0625rem;
+    border-radius: 0.125rem;
   }
   .text {
     color: #c3cbde;
   }
   .body-box {
-    flex-direction: column;
-    border-radius: 10px;
+    border-radius: 0.125rem;
     overflow: hidden;
   }
 }

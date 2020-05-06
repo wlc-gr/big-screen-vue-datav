@@ -4,7 +4,7 @@
       <div class="bg-color-black item" v-for="item in titleItem" :key="item.title">
         <p class="ml-3 colorBlue fw-b">{{item.title}}</p>
         <div>
-          <dv-digital-flop :config="item.number" style="width:100px;height:50px;" />
+          <dv-digital-flop :config="item.number" style="width:1.25rem;height:.625rem;" />
         </div>
       </div>
     </div>
@@ -14,7 +14,7 @@
           <icon name="align-left"></icon>
         </span>
         <span class="fs-xl text mx-2 mb-1">年度负责人组件达标榜</span>
-        <dv-scroll-ranking-board :config="ranking" style="height:220px" />
+        <dv-scroll-ranking-board :config="ranking" style="height:2.75rem" />
       </div>
       <div class="percent">
         <div class="item bg-color-black">
@@ -26,7 +26,7 @@
           <centerChart :id="rate[1].id" :tips="rate[1].tips" :colorObj="rate[1].colorData" />
         </div>
         <div class="water">
-          <dv-water-level-pond :config="water" style="height: 120px" />
+          <dv-water-level-pond :config="water" style="height: 1.5rem" />
         </div>
       </div>
     </div>
@@ -185,25 +185,25 @@ export default {
     flex-wrap: wrap;
     justify-content: space-around;
     .item {
-      border-radius: 5px;
-      padding-top: 1rem;
-      margin-top: 0.5rem;
+      border-radius: 0.0625rem;
+      padding-top: 0.2rem;
+      margin-top: 0.1rem;
       width: 32%;
-      height: 70px;
+      height: 0.875rem;
     }
   }
   .down {
-    padding: 4px;
-    padding-bottom: 0px;
+    padding: 0.07rem 0.05rem;
+    padding-bottom: 0;
     width: 100%;
     display: flex;
-    height: 255px;
+    height: 3.1875rem;
     justify-content: space-between;
     .bg-color-black {
-      border-radius: 5px;
+      border-radius: 0.0625rem;
     }
     .ranking {
-      padding: 10px;
+      padding: 0.125rem;
       width: 59%;
     }
     .percent {
@@ -212,9 +212,9 @@ export default {
       flex-wrap: wrap;
       .item {
         width: 50%;
-        height: 120px;
+        height: 1.5rem;
         span {
-          margin-top: 7px;
+          margin-top: 0.0875rem;
           display: flex;
           justify-content: center;
         }

@@ -161,8 +161,25 @@ props: {
 6. **如何更换图表**
    直接进入 `components/echart` 下的文件修改成你要的 echarts 模样，可以去[echarts 官方社区](https://gallery.echartsjs.com/explore.html#sort=rank~timeframe=all~author=all)里面查看案例。
 
-7. **屏幕比例不对怎么办**
-   其实 dataV 插件已经对屏幕的比例做了一定程度的适配，但肯定有比例不合适的屏幕，所以可能需要自己去写 js 代码，让项目按照比例缩放，这也是通用的适配方法。
+7. **屏幕适配问题**
+   本项目借助了 flexible 插件，通过改变 rem 的值来进行适配，原设计为 1920px。 ，适配区间为：1366px ~ 2560px，本项目有根据实际情况进行源文件的更改，小屏幕（如:宽为 1366px）需要自己舍弃部分动态组件进行适配，如'动态文字变换组件'会影响布局，需要手动换成一般节点，
+
+```js
+// flexible文件位置: `common/flexible.js`,修改部分如下
+function refreshRem() {
+  var width = docEl.getBoundingClientRect().width;
+  // 最小1366px，最大适配2560px
+  if (width / dpr < 1366) {
+    width = 1366 * dpr;
+  } else if (width / dpr > 2560) {
+    width = 2560 * dpr;
+  }
+  // 原项目是1920px我设置成24等份，这样1rem就是80px
+  var rem = width / 24;
+  docEl.style.fontSize = rem + "px";
+  flexible.rem = win.rem = rem;
+}
+```
 
 ## 四、更新情况
 

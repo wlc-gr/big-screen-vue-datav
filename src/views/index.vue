@@ -4,25 +4,25 @@
       <dv-loading v-if="loading">Loading...</dv-loading>
       <div v-else class="host-body">
         <div class="d-flex jc-center">
-          <dv-decoration-10 style="width:33.3%;height:5px;" />
+          <dv-decoration-10 style="width:33.3%;height:.0625rem;" />
           <div class="d-flex jc-center">
-            <dv-decoration-8 :color="['#568aea', '#000000']" style="width:200px;height:50px;" />
+            <dv-decoration-8 :color="['#568aea', '#000000']" style="width:2.5rem;height:.625rem;" />
             <div class="title">
               <span class="title-text">大数据可视化平台</span>
               <dv-decoration-6
                 class="title-bototm"
                 :reverse="true"
                 :color="['#50e3c2', '#67a1e5']"
-                style="width:250px;height:8px;"
+                style="width:3.125rem;height:.1rem;"
               />
             </div>
             <dv-decoration-8
               :reverse="true"
               :color="['#568aea', '#000000']"
-              style="width:200px;height:50px;"
+              style="width:2.5rem;height:.625rem;"
             />
           </div>
-          <dv-decoration-10 style="width:33.3%;height:5px; transform: rotateY(180deg);" />
+          <dv-decoration-10 style="width:33.3%;height:.0625rem; transform: rotateY(180deg);" />
         </div>
 
         <!-- 第二行 -->
@@ -30,13 +30,13 @@
           <div class="d-flex" style="width: 40%">
             <div
               class="react-right ml-4"
-              style="width: 500px; text-align: left;background-color: #0f1325;"
+              style="width: 6.25rem; text-align: left;background-color: #0f1325;"
             >
               <span class="react-before"></span>
-              <span class="text fw-b">数据分析1</span>
+              <span class="text">数据分析1</span>
             </div>
             <div class="react-right ml-3" style="background-color: #0f1325;">
-              <span class="text colorBlue fw-b">数据分析2</span>
+              <span class="text colorBlue">数据分析2</span>
             </div>
           </div>
           <div style="width: 40%" class="d-flex">
@@ -45,7 +45,7 @@
             </div>
             <div
               class="react-left mr-4"
-              style="width: 500px; background-color: #0f1325; text-align: right;"
+              style="width: 6.25rem; background-color: #0f1325; text-align: right;"
             >
               <span class="react-after"></span>
               <span class="text">2020年03月16日 周一 12:00</span>
@@ -58,12 +58,12 @@
           <div class="content-box">
             <div>
               <dv-border-box-12>
-                <centreLeft1 />
+                <centerLeft1 />
               </dv-border-box-12>
             </div>
             <div>
               <dv-border-box-12>
-                <centreLeft2 />
+                <centerLeft2 />
               </dv-border-box-12>
             </div>
             <!-- 中间 -->
@@ -72,11 +72,11 @@
             </div>
             <!-- 中间 -->
             <div>
-              <centreRight2 />
+              <centerRight2 />
             </div>
             <div>
               <dv-border-box-13>
-                <centreRight1 />
+                <centerRight1 />
               </dv-border-box-13>
             </div>
           </div>
@@ -97,10 +97,10 @@
 </template>
 
 <script>
-import centreLeft1 from "./centreLeft1";
-import centreLeft2 from "./centreLeft2";
-import centreRight1 from "./centreRight1";
-import centreRight2 from "./centreRight2";
+import centerLeft1 from "./centerLeft1";
+import centerLeft2 from "./centerLeft2";
+import centerRight1 from "./centerRight1";
+import centerRight2 from "./centerRight2";
 import center from "./center";
 import bottomLeft from "./bottomLeft";
 import bottomRight from "./bottomRight";
@@ -111,10 +111,10 @@ export default {
     };
   },
   components: {
-    centreLeft1,
-    centreLeft2,
-    centreRight1,
-    centreRight2,
+    centerLeft1,
+    centerLeft2,
+    centerRight1,
+    centerRight2,
     center,
     bottomLeft,
     bottomRight
@@ -132,6 +132,6 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "../assets/scss/index.scss";
 </style>

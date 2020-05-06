@@ -35,27 +35,27 @@ export default {
 
 <style lang="scss">
 #bottomRight {
-  padding: 1rem 1rem 0rem;
-  height: 520px;
-  min-width: 300px;
-  border-radius: 5px;
+  padding: 0.2rem 0.2rem 0;
+  height: 6.5rem;
+  min-width: 3.75rem;
+  border-radius: 0.0625rem;
   .bg-color-black {
-    height: 495px;
-    border-radius: 10px;
+    height: 6.1875rem;
+    border-radius: 0.125rem;
   }
   .text {
     color: #c3cbde;
   } //下滑线动态
   .decoration2 {
     position: absolute;
-    right: 10px;
+    right: 0.125rem;
   }
   .chart-box {
-    margin-top: 1rem;
-    width: 170px;
-    height: 170px;
+    margin-top: 0.2rem;
+    width: 2.125rem;
+    height: 2.125rem;
     .active-ring-name {
-      padding-top: 10px;
+      padding-top: 0.125rem;
     }
   }
 }

@@ -14,24 +14,23 @@ $colors: (
 );
 
 // 字体大小
-$base-font-size: 1rem;
+$base-font-size: 0.2rem;
 $font-sizes: (
-  xxs: 0.6154,
+  xxs: 0.1,
   //8px
-    xs: 0.7692,
+    xs: 0.125,
   //10px
-    sm: 0.9231,
+    sm: 0.2875,
   //12px
-    md: 1 ,
+    md: 0.1625,
   //13px
-    lg: 1.0769 ,
+    lg: 0.175,
   //14px
-    xl: 1.2308 ,
+    xl: 0.2,
   //16px
-    xxl: 1.3846 ,
+    xxl: 0.225,
   //18px
-    xxxl: 1.5385 
-  //20px
+    xxxl: 0.25 //20px,,,,
 );
 
 // 宽高
@@ -61,14 +60,14 @@ $flex-jc: (
   center: center,
   between: space-between,
   around: space-around,
-  evenly: space-evenly
+  evenly: space-evenly,
 );
 
 $flex-ai: (
   start: flex-start,
   end: flex-end,
   center: center,
-  stretch: stretch
+  stretch: stretch,
 );
 
 .flex-1 {
@@ -79,20 +78,20 @@ $flex-ai: (
 //spacing
 $spacing-types: (
   m: margin,
-  p: padding
+  p: padding,
 );
 $spacing-directions: (
   t: top,
   r: right,
   b: bottom,
-  l: left
+  l: left,
 );
-$spacing-base-size: 1rem;
+$spacing-base-size: 0.2rem;
 $spacing-sizes: (
   0: 0,
   1: 0.25,
   2: 0.5,
   3: 1,
   4: 1.5,
-  5: 3
+  5: 3,
 );

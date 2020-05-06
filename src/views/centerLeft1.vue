@@ -7,7 +7,7 @@
         </span>
         <div class="d-flex">
           <span class="fs-xl text mx-2">任务通过率</span>
-          <dv-decoration-3 style="width:100px;height:20px; position:relative;top:-3px;" />
+          <dv-decoration-3 style="width:1.25rem;height:.25rem; position:relative;top:-.0375rem;" />
         </div>
       </div>
       <div class="d-flex jc-center">
@@ -18,7 +18,7 @@
         <div class="item-box" v-for="(item,index) in numberData" :key="index">
           <div class="d-flex">
             <span class="coin">￥</span>
-            <dv-digital-flop :config="item.number" style="width:200px;height:50px;" />
+            <dv-digital-flop :config="item.number" style="width:2.5rem;height:.625rem;" />
           </div>
           <p class="text" style="text-align: center;">
             {{item.text}}
@@ -123,23 +123,23 @@ export default {
 
 <style lang="scss">
 #centreLeft1 {
-  padding: 1rem;
-  height: 410px;
-  min-width: 300px;
-  border-radius: 5px;
+  padding: 0.2rem;
+  height: 5.125rem;
+  min-width: 3.75rem;
+  border-radius: 0.0625rem;
   .bg-color-black {
-    height: 385px;
-    border-radius: 10px;
+    height: 4.8125rem;
+    border-radius: 0.125rem;
   }
   .text {
     color: #c3cbde;
   }
   .chart-box {
-    margin-top: 1rem;
-    width: 170px;
-    height: 170px;
+    margin-top: 0.2rem;
+    width: 2.125rem;
+    height: 2.125rem;
     .active-ring-name {
-      padding-top: 10px;
+      padding-top: 0.125rem;
     }
   }
 
@@ -152,9 +152,9 @@ export default {
       // 金币
       .coin {
         position: absolute;
-        left: 0px;
-        top: 17px;
-        font-size: 2rem;
+        left: 0.1rem;
+        top: 0.2125rem;
+        font-size: 0.25rem;
         color: #ffc107;
       }
       .colorYellow {
