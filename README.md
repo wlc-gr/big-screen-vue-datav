@@ -27,6 +27,7 @@
 | assets / style.scss | 通用 CSS 文件，全局项目快捷样式调节                 |
 | assets / index.scss | Index 界面的 CSS 文件                               |
 | components/echart   | 所有 echart 图表（按照位置来命名）                  |
+| common/flexible.js  | flexible插件代码（适配屏幕尺寸，定制化修改）         |
 
 ## 三、使用介绍
 
@@ -158,8 +159,10 @@ props: {
 
 只需要去 views 目录下去寻找对应的位置去查找并替换就可以，具体的种类请去 DavaV 官网查看
 
+
 6. **如何更换图表**
    直接进入 `components/echart` 下的文件修改成你要的 echarts 模样，可以去[echarts 官方社区](https://gallery.echartsjs.com/explore.html#sort=rank~timeframe=all~author=all)里面查看案例。
+
 
 7. **屏幕适配问题**
    本项目借助了 flexible 插件，通过改变 rem 的值来进行适配，原设计为 1920px。 ，适配区间为：1366px ~ 2560px，本项目有根据实际情况进行源文件的更改，小屏幕（如:宽为 1366px）需要自己舍弃部分动态组件进行适配，如'动态文字变换组件'会影响布局，需要手动换成一般节点，
@@ -184,7 +187,8 @@ function refreshRem() {
 ## 四、更新情况
 
 1. 增加了 Echart 组件复用的功能，如：中间任务达标率的两个百分比图使用的是同一个组件。
-2. 修复了头部右侧的图案条不对称的问题
+2. 修复了头部右侧的图案条不对称的问题。
+3. 修复屏幕适配问题，更换了所有的尺寸单位，统一使用rem。
 
 ## 五、其余
 
