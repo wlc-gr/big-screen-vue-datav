@@ -5,26 +5,28 @@
 </template>
 
 <script>
+import echartMixins from "@/utils/resizeMixins";
 const echarts = require("echarts");
 export default {
   data() {
-    return {};
+    return {
+      chart: null
+    };
   },
   mounted() {
-    this.drawPie();
+    this.draw();
     this.charTimg();
   },
+  mixins: [echartMixins],
   methods: {
     charTimg() {
       setInterval(() => {
-        this.drawPie();
+        this.draw();
       }, 6000);
     },
-    drawPie() {
+    draw() {
       // 基于准备好的dom，初始化echarts实例
-      let myChartPieLeft = echarts.init(
-        document.getElementById("bottomRightChart")
-      );
+      this.chart = echarts.init(document.getElementById("bottomRightChart"));
       //  ----------------------------------------------------------------
       // 数据
       let dateBase = new Date();
@@ -392,10 +394,7 @@ export default {
         ]
       };
 
-      myChartPieLeft.setOption(option);
-      // -----------------------------------------------------------------
-      // 响应式变化
-      window.addEventListener("resize", () => myChartPieLeft.resize(), false);
+      this.chart.setOption(option);
     }
   },
   destroyed() {

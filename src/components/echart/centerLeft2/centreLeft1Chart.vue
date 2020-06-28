@@ -5,23 +5,25 @@
 </template>
 
 <script>
+import echartMixins from "@/utils/resizeMixins";
 const echarts = require("echarts");
 export default {
   data() {
-    return {};
+    return {
+      chart: null
+    };
   },
+  mixins: [echartMixins],
   mounted() {
-    this.drawPie();
+    this.draw();
   },
   methods: {
-    drawPie(sidebar) {
+    draw() {
       // 基于准备好的dom，初始化echarts实例
-      let myChartPieLeft = echarts.init(
-        document.getElementById("centreLeft1Chart")
-      );
+      this.chart = echarts.init(document.getElementById("centreLeft1Chart"));
       //  ----------------------------------------------------------------
 
-      myChartPieLeft.setOption({
+      this.chart.setOption({
         color: [
           "#37a2da",
           "#32c5e9",
@@ -68,13 +70,6 @@ export default {
           }
         ]
       });
-      // -----------------------------------------------------------------
-      // 响应式变化
-      window.addEventListener("resize", () => myChartPieLeft.resize(), false);
-      //侧边栏变化
-      if (sidebar) {
-        myChartPieLeft.resize();
-      }
     }
   },
   destroyed() {

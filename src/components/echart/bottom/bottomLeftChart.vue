@@ -5,20 +5,22 @@
 </template>
 
 <script>
+import echartMixins from "@/utils/resizeMixins";
 const echarts = require("echarts");
 export default {
   data() {
-    return {};
+    return {
+      chart: null
+    };
   },
+  mixins: [echartMixins],
   mounted() {
-    this.drawPie();
+    this.draw();
   },
   methods: {
-    drawPie() {
+    draw() {
       // 基于准备好的dom，初始化echarts实例
-      let myChartPieLeft = echarts.init(
-        document.getElementById("bottomLeftChart")
-      );
+      this.chart = echarts.init(document.getElementById("bottomLeftChart"));
       //  ----------------------------------------------------------------
       let category = [
         "市区",
@@ -255,10 +257,7 @@ export default {
           }
         ]
       };
-      myChartPieLeft.setOption(option);
-      // -----------------------------------------------------------------
-      // 响应式变化
-      window.addEventListener("resize", () => myChartPieLeft.resize(), false);
+      this.chart.setOption(option);
     }
   },
   destroyed() {

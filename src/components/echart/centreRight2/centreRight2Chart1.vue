@@ -5,24 +5,24 @@
 </template>
 
 <script>
+import echartMixins from "@/utils/resizeMixins";
 const echarts = require("echarts");
 export default {
   data() {
-    return {};
+    return {
+      chart: null
+    };
   },
+  mixins: [echartMixins],
   mounted() {
-    this.drawPie();
+    this.draw();
   },
   methods: {
-    drawPie(sidebar) {
+    draw() {
       // 基于准备好的dom，初始化echarts实例
-      let myChartPieLeft = echarts.init(
-        document.getElementById("centreRight2Chart1")
-      );
+      this.chart = echarts.init(document.getElementById("centreRight2Chart1"));
       //  ----------------------------------------------------------------
-      // Schema:
-      // date,AQIindex,PM2.5,PM10,CO,NO2,SO2
-      var dataBJ = [
+      let dataBJ = [
         [94, 69, 114, 2.08, 73, 39, 22],
         [99, 73, 110, 2.43, 76, 48, 23],
         [31, 12, 30, 0.5, 32, 16, 24],
@@ -32,7 +32,7 @@ export default {
         [160, 120, 186, 2.77, 91, 50, 28]
       ];
 
-      var dataGZ = [
+      let dataGZ = [
         [84, 94, 140, 2.238, 68, 18, 22],
         [93, 77, 104, 1.165, 53, 7, 23],
         [99, 130, 227, 3.97, 55, 15, 24],
@@ -42,7 +42,7 @@ export default {
         [56, 48, 68, 1.336, 37, 9, 28]
       ];
 
-      var dataSH = [
+      let dataSH = [
         [91, 45, 125, 0.82, 34, 23, 1],
         [65, 27, 78, 0.86, 45, 29, 2],
         [83, 60, 84, 1.09, 73, 27, 3],
@@ -52,7 +52,7 @@ export default {
         [106, 77, 114, 1.07, 55, 51, 7]
       ];
 
-      var lineStyle = {
+      let lineStyle = {
         normal: {
           width: 1,
           opacity: 0.5
@@ -151,14 +151,7 @@ export default {
           }
         ]
       };
-      myChartPieLeft.setOption(option);
-      // -----------------------------------------------------------------
-      // 响应式变化
-      window.addEventListener("resize", () => myChartPieLeft.resize(), false);
-      //侧边栏变化
-      if (sidebar) {
-        myChartPieLeft.resize();
-      }
+      this.chart.setOption(option);
     }
   },
   destroyed() {

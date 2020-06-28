@@ -5,20 +5,22 @@
 </template>
 
 <script>
+import echartMixins from "@/utils/resizeMixins";
 const echarts = require("echarts");
 export default {
   data() {
-    return {};
+    return {
+      chart: null
+    };
   },
+  mixins: [echartMixins],
   mounted() {
-    this.drawPie();
+    this.draw();
   },
   methods: {
-    drawPie(sidebar) {
+    draw() {
       // 基于准备好的dom，初始化echarts实例
-      let myChartPieLeft = echarts.init(
-        document.getElementById("centreLeft2Chart")
-      );
+      this.chart = echarts.init(document.getElementById("centreLeft2Chart"));
       //  ----------------------------------------------------------------
 
       let option = {
@@ -188,14 +190,7 @@ export default {
           }
         ]
       };
-      myChartPieLeft.setOption(option);
-      // -----------------------------------------------------------------
-      // 响应式变化
-      window.addEventListener("resize", () => myChartPieLeft.resize(), false);
-      //侧边栏变化
-      if (sidebar) {
-        myChartPieLeft.resize();
-      }
+      this.chart.setOption(option);
     }
   },
   destroyed() {

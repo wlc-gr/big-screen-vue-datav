@@ -5,13 +5,17 @@
 </template>
 
 <script>
+import echartMixins from "@/utils/resizeMixins";
 const echarts = require("echarts");
 export default {
   data() {
-    return {};
+    return {
+      chart: null
+    };
   },
+  mixins: [echartMixins],
   mounted() {
-    this.drawPie();
+    this.draw();
   },
   props: {
     id: {
@@ -41,9 +45,9 @@ export default {
     }
   },
   methods: {
-    drawPie() {
+    draw() {
       // 基于准备好的dom，初始化echarts实例
-      let myChartPieLeft = echarts.init(document.getElementById(this.id));
+      this.chart = echarts.init(document.getElementById(this.id));
       //  ----------------------------------------------------------------
       let tips = this.tips;
       let option = {
@@ -88,10 +92,7 @@ export default {
           }
         ]
       };
-      myChartPieLeft.setOption(option);
-      // -----------------------------------------------------------------
-      // 响应式变化
-      window.addEventListener("resize", () => myChartPieLeft.resize(), false);
+      this.chart.setOption(option);
     }
   },
   destroyed() {

@@ -5,6 +5,7 @@
 - 项目部分区域使用了全局注册方式，增加了打包体积，在实际运用中请使用**按需引入**。
 - 拉取项目之后，建议按照自己的功能区域重命名文件，现以简单的位置进行区分。
 - 项目环境：vue-cli-3.0、webpack-4.0、npm-6.13、node-v12.16。
+- 请拉取 master 分支的代码，其余是开发分支。
 
 友情链接：
 
@@ -14,39 +15,42 @@
 4.  [项目 gitee 地址（国内速度快）](https://gitee.com/MTrun/big-screen-vue-datav)
 
 项目展示
-![项目展示](https://images.gitee.com/uploads/images/2020/0411/221307_0f8af2e7_4964818.gif "20200411_221020.gif")
+![项目展示](https://images.gitee.com/uploads/images/2020/0411/221307_0f8af2e7_4964818.gif '20200411_221020.gif')
 
 ## 二、主要文件介绍
 
 | 文件                | 作用/功能                                           |
 | ------------------- | --------------------------------------------------- |
 | mian.js             | 主目录文件，全局引入了引入 vue-awesome              |
+| utils               | 工具函数与 mixins 函数等                            |
 | views/ index.vue    | 项目主结构                                          |
 | views/其余文件      | 界面各个区域组件（按照位置来命名）ajax 接口请求位置 |
 | assets              | 静态资源目录，放置 logo 与背景图片                  |
 | assets / style.scss | 通用 CSS 文件，全局项目快捷样式调节                 |
 | assets / index.scss | Index 界面的 CSS 文件                               |
 | components/echart   | 所有 echart 图表（按照位置来命名）                  |
-| common/flexible.js  | flexible插件代码（适配屏幕尺寸，定制化修改）         |
+| common/flexible.js  | flexible 插件代码（适配屏幕尺寸，定制化修改）       |
 
 ## 三、使用介绍
 
 1. **如何启动项目**
+
    需要提前安装好`nodejs`与`npm`,下载项目后在项目主目录下运行`npm/cnpm install`拉取依赖包，然后使用 `vue-cli` 或者直接使用命令`npm run serve`，就可以启动项目，启动项目后需要手动全屏（按 F11）。
 
 2. **如何请求数据**
+
    现在的项目未使用前后端数据请求，建议使用 axios 进行数据请求，在 main.js 位置进行全局配置，在 views/xx.vue 文件里进行前后端数据请求。
 
 - axios 的 main.js 配置参考范例（因人而异）
 
 ```js
-import axios from "axios";
+import axios from 'axios';
 
 //把方法放到vue的原型上，这样就可以全局使用了
 Vue.prototype.$http = axios.create({
   //设置20秒超时时间
   timeout: 20000,
-  baseURL: "http://172.0.0.1:80080", //这里写后端地址
+  baseURL: 'http://172.0.0.1:80080', //这里写后端地址
 });
 ```
 
@@ -72,6 +76,7 @@ export default {
 ```
 
 3. **如何动态渲染图表**
+
    在`components/echart`下的文件，比如`drawPie()`是渲染函数，`echartData`是需要动态渲染的数据，当外界通过`props`传入新数据，我们可以使用`watch()`方法去监听，一但数据变化就调用`this.drawPie()`并触发内部的`.setOption`函数，重新渲染一次图表。
 
 ```js
@@ -93,6 +98,7 @@ methods: {
 ```
 
 4. **如何复用图表组件**
+
    因为 Echart 图表是根据`id/class`去获取 Dom 节点并进行渲染的，所以我们只要传入唯一的 id 值与需要的数据就可以进行复用。如中间部分的`任务通过率与任务达标率`组件就是采用复用的方式。
 
 如：在调用处`views/center.vue`里去定义好数据并传入组件（项目里的所有`id`都不能重复!!!）
@@ -128,43 +134,29 @@ data() {
 }
 ```
 
-在复用的组件`components/echart/center/centerChartRate`里进行接收并在用到的地方赋值。
-
-```js
-props: {
-    id: {
-      type: String,
-      required: true,
-      default: "chartRate"
-    },
-    ...
-    colorObj: {
-      type: Object,
-      default: function() {
-        return {
-          //具体去代码里看
-          }
-        };
-      }
-    }
-  },
-```
+然后在复用的组件`components/echart/center/centerChartRate`里进行接收并在用到的地方赋值。
 
 5. **如何更换边框**
-   边框是使用了 DataV 自带的组件，如：
+
+   边框是使用了 DataV 自带的组件，只需要去 views 目录下去寻找对应的位置去查找并替换就可以，具体的种类请去 DavaV 官网查看
+   如：
 
 ```html
 <dv-border-box-1></dv-border-box-1>
+<dv-border-box-2></dv-border-box-2>
+<dv-border-box-3></dv-border-box-3>
 ```
 
-只需要去 views 目录下去寻找对应的位置去查找并替换就可以，具体的种类请去 DavaV 官网查看
-
-
 6. **如何更换图表**
+
    直接进入 `components/echart` 下的文件修改成你要的 echarts 模样，可以去[echarts 官方社区](https://gallery.echartsjs.com/explore.html#sort=rank~timeframe=all~author=all)里面查看案例。
 
+7. **Mixins 注入的问题**
 
-7. **屏幕适配问题**
+   使用 mixins 注入解决了图表重复书写响应式适配的代码，如果要更换(新增)图形，需要将`echarts.init()`函数赋值给`this.chart`，然后 mixins 才会自动帮你注入响应式功能。
+
+8. **屏幕适配问题**
+
    本项目借助了 flexible 插件，通过改变 rem 的值来进行适配，原设计为 1920px。 ，适配区间为：1366px ~ 2560px，本项目有根据实际情况进行源文件的更改，小屏幕（如:宽为 1366px）需要自己舍弃部分动态组件进行适配，如'动态文字变换组件'会影响布局，需要手动换成一般节点，
 
 ```js
@@ -179,7 +171,7 @@ function refreshRem() {
   }
   // 原项目是1920px我设置成24等份，这样1rem就是80px
   var rem = width / 24;
-  docEl.style.fontSize = rem + "px";
+  docEl.style.fontSize = rem + 'px';
   flexible.rem = win.rem = rem;
 }
 ```
@@ -188,7 +180,9 @@ function refreshRem() {
 
 1. 增加了 Echart 组件复用的功能，如：中间任务达标率的两个百分比图使用的是同一个组件。
 2. 修复了头部右侧的图案条不对称的问题。
-3. 修复屏幕适配问题，更换了所有的尺寸单位，统一使用rem。
+3. 修复屏幕适配问题，更换了所有的尺寸单位，统一使用 rem。
+4. 使用 Mixins 注入图表响应式代码。
+5. vue-awesome 改成按需引入的方式
 
 ## 五、其余
 
